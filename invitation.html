@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>新人专享</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+
+body {
+	background-color: #DA4E3F;
+}
+
+img {
+   pointer-events: none;
+   vertical-align: sub;
+}
+
+.anys {
+	font-family: "黑体";
+	font-weight: bold;
+	width: 591px;
+	height: 160px;
+	line-height: 160px;
+	text-align: center;
+	margin: 0 auto;
+	float: left;
+	border-radius: 25px;
+	background-color: #F8CB16;
+	font-size: 62px;
+	color: #af6500;
+	cursor: pointer;
+	animation: rotate2 .8s linear 0s infinite;
+}
+
+@keyframes rotate2 {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 999;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.modal.active {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.modal img {
+    margin: 10% auto;
+    display: block;
+    width: 80%;
+}
+</style></head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<div style="width:1080px; margin:0 auto;">
+	<img src="images/a.gif" width="1080px" height="1242px" alt="">
+	
+	<div style="width:246px;height:165px;float:left;">
+	<img src="images/b.gif" width="246px" height="165px" alt=""></div>
+	
+	<div class="anys" id="dil_btn">立即领取</div>
+	
+	<div style="width:243px;height:165px;float:left;">
+	<img src="images/c.gif" width="243px" height="165px" alt=""></div>
+	
+	<img src="images/d.gif" width="1080px" height="648px" alt="">
+</div>
+
+  <div class="modal" id="ts">
+      <img src="images/ts.png" alt="指示">
+    </div>
+
+<script type="text/javascript">
+function isWeixin() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+var an = document.getElementById("dil_btn");
+var tc = document.getElementById("ts");
+
+an.onclick = function() {
+    if (isWeixin()) {
+        tc.className += " " + "active";
+    } else {
+        window.location.href = 'downurl/index.html?r=' + Math.random();
+    }
+};
+
+tc.onclick = function() {
+    tc.className += "active";
+};
+</script>
+
+</body>
+</html>
